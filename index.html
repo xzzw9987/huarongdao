@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>来瓶王朝过春节</title>
+    <meta name="viewport">
+    <script>
+        (function () {
+            // reset meta viewport
+            var match,
+                    scale,
+                    TARGET_WIDTH = 1080;
+            var normalSet = function () {
+                document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + TARGET_WIDTH + ',user-scalable=no');
+            };
+            if (match = navigator.userAgent.match(/Android (\d+\.\d+)/)) {
+                if (parseFloat(match[1]) < 4.4) {
+                    if (TARGET_WIDTH == 320) TARGET_WIDTH++;
+                    var scale = window.screen.width / TARGET_WIDTH;
+                    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + TARGET_WIDTH + ', initial-scale=' + scale + ', minimum-scale=' + scale + ', maximum-scale=' + scale + ', target-densitydpi=device-dpi, user-scalable=no');
+                }
+                else {
+                    normalSet();
+                }
+            }
+            else {
+                normalSet();
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="./build/css/app.css">
+</head>
+<body>
+<div class="w" style="background-repeat: no-repeat;height: 100%;">
+    <div class="container" style="display: none">
+        <div class="pg index">
+            <div class="logo"></div>
+            <div class="start-game"></div>
+            <div class="rules-btn"></div>
+        </div>
+    </div>
+    <div style="position: absolute; top: 600px;width: 100%;color: #47382d;font-size: 100px;text-align: center"
+         class="loading">
+        <p>加载中...</p>
+
+        <p class="load-percent"></p>
+    </div>
+</div>
+<div class="rules fade-in" style="
+animation-duration: .2s;
+-webkit-animation-duration: .2s;
+display: none;">
+    <div class="cv"></div>
+    <div class="r">
+        <div class="rn"></div>
+    </div>
+</div>
+<div style="display: none">
+    <img src="build/css/board.png" alt="">
+    <img src="build/css/erweima.png" alt="">
+    <img src="build/css/footer.png" alt="">
+    <img src="build/css/fal.png" alt="">
+    <img src="build/css/game-bg.jpg" alt="">
+    <img src="build/css/i.jpg" alt="">
+    <img src="build/css/ib.png" alt="">
+    <img src="build/css/logo.png" alt="">
+    <img src="build/css/rules.png" alt="">
+    <img src="build/css/sp1.png" alt="">
+    <img src="build/css/sp2.png" alt="">
+    <img src="build/css/sp3.png" alt="">
+    <img src="build/css/suc.png" alt="">
+    <img src="build/css/t2.png" alt="">
+    <img src="build/css/t3.png" alt="">
+    <img src="build/css/win.png" alt="">
+    <img src="build/css/win-bg.jpg" alt="">
+</div>
+<script src="./build/js/jq.js"></script>
+<script src="./build/js/bundle.js"></script>
+<script>
+
+    // Chrome Hack
+    document.body.addEventListener('touchstart', function () {
+
+    });
+</script>
+</body>
+</html>

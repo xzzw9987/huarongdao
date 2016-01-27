@@ -1,0 +1,315 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "STHeitiSC-Light", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: url("./bg.jpg");
+    background-size: 100% 100%;
+}
+
+@-webkit-keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes fade-out {
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-out {
+    100% {
+        opacity: 0;
+    }
+}
+
+.sp:after, .t2:after, .t3:after {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 160px;
+    background-repeat: no-repeat;
+    background-position: center;;
+}
+
+.t2:after {
+    width: 320px;
+    background-image: url("./t2.png");
+}
+
+.t3:after {
+    width: 480px;
+    background-image: url("./t3.png");
+}
+
+.sp:after {
+    background-image: url("./sp1.png");
+}
+
+.stage-1 .sp:after {
+    background-image: url("./sp1.png");
+}
+
+.stage-2 .sp:after {
+    background-image: url("./sp2.png");
+}
+
+.stage-3 .sp:after {
+    background-image: url("./sp3.png");
+}
+
+.v:after {
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.h:after {
+    -webkit-transform: translate(-50%, -50%) rotate(-90deg);
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.game-bg {
+    height: 1015px;
+    background: url("./board.png") 100% center no-repeat;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    top: 250px;
+}
+
+.game-canvas {
+    width: 960px;
+    height: 960px;
+    margin: 30px auto;
+    position: relative;
+}
+
+.game-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.game-block {
+}
+
+.v.t3 {
+    width: 480px;
+    height: 160px;
+}
+
+.v.t2 {
+    width: 320px;
+    height: 160px;
+}
+
+.h.t3 {
+    width: 160px;
+    height: 480px;
+}
+
+.h.t2 {
+    width: 160px;
+    height: 320px;;
+}
+
+.pg {
+    height: 100%;
+    position: relative;
+}
+
+.index {
+    background: url("./ib.png") no-repeat;
+    background-position: 224px 256px;
+}
+
+.start-game, .rules-btn, .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.index .start-game {
+    top: 1612px;
+    left: 370px;
+    width: 350px;
+    height: 160px;
+}
+
+.index .rules-btn {
+    top: 1772px;
+    left: 370px;
+    width: 350px;
+    height: 100px;
+}
+
+.logo {
+    left: 340px;
+    top: 140px;
+    width: 400px;
+    height: 90px;
+    background: url("./logo.png") no-repeat;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background: url("./footer.png") 40px 0 no-repeat;
+}
+
+.footer .rules-btn {
+    top: 270px;
+    left: 20px;
+    width: 220px;
+    height: 100px;
+}
+
+.info {
+    position: absolute;
+    width: 100%;
+    top: 1290px;
+    text-align: center;
+    font-size: 80px;
+    padding-top: 40px;
+}
+
+.fade-in {
+    -webkit-animation: fade-in .5s;
+    animation: fade-in .5s;
+}
+
+.fade-out {
+    -webkit-animation: fade-out .5s;
+    animation: fade-out .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.container {
+    height: 1878px;
+    -webkit-transform: scale(.75);
+    transform: scale(.75);
+    -webkit-transform-origin: top center;
+    transform-origin: top center;
+    position: relative;
+}
+
+.cv,
+.opt {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.cv {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .4;
+}
+
+.opt {
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.suc .opt {
+    width: 740px;
+    height: 740px;
+    background: url("./suc.png") no-repeat;
+}
+
+.suc .nxt {
+    position: absolute;
+    bottom: 86px;
+    left: 180px;
+    width: 380px;
+    height: 130px;
+}
+
+.los .opt {
+    width: 740px;
+    height: 740px;
+    background: url("./fal.png") no-repeat;
+}
+
+.los .nxt {
+    position: absolute;
+    bottom: 86px;
+    left: 180px;
+    width: 380px;
+    height: 130px;
+}
+
+.r {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 840px;
+    height: 950px;
+    background: url("./rules.png") no-repeat;
+}
+
+.rn {
+    position: absolute;
+    bottom: 90px;
+    left: 220px;
+    width: 380px;
+    height: 130px;
+}
+
+.bg-index {
+    background-image: url("./i.jpg");
+}
+
+.bg-game {
+    background-image: url("./game-bg.jpg");
+}
+
+.bg-win {
+    background-image: url("./win-bg.jpg");
+}
+
+.win {
+    background: url("./win.png") no-repeat;
+    background-position: 100px 250px;
+}
+
+.erweima {
+    position: relative;
+    left: 80px;
+    top: 285px;
+    /*transform: translate(0,1420px);*/
+}
+
+.code-container {
+    position: absolute;
+    font-size: 60px;
+    top: 1200px;
+    left: 214px;
+}
