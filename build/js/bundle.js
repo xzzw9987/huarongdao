@@ -491,6 +491,36 @@
 	    };
 	}
 
+	wx.ready(function () {
+
+	    wx.onMenuShareTimeline({
+	        title: '来瓶王朝过春节', // 分享标题
+	        link: 'http://wx.wine-dynasty.com/hrd/share.html', // 分享链接
+	        imgUrl: 'http://wx.wine-dynasty.com/hrd/fg.jpg', // 分享图标
+	        success: function success() {
+	            // 用户确认分享后执行的回调函数
+	        },
+	        cancel: function cancel() {
+	            // 用户取消分享后执行的回调函数
+	        }
+	    });
+
+	    wx.onMenuShareAppMessage({
+	        title: '来瓶王朝过春节', // 分享标题
+	        desc: '快来试一试，凭你的智商，能不能从重重包围中把王朝带回家吧', // 分享描述
+	        link: 'http://wx.wine-dynasty.com/hrd/share.html', // 分享链接
+	        imgUrl: 'http://wx.wine-dynasty.com/hrd/fg.jpg', // 分享图标
+	        type: 'link', // 分享类型,music、video或link，不填默认为link
+	        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+	        success: function success() {
+	            // 用户确认分享后执行的回调函数
+	        },
+	        cancel: function cancel() {
+	            // 用户取消分享后执行的回调函数
+	        }
+	    });
+	});
+
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
