@@ -65,7 +65,15 @@
 	        // window.addEventListener('resize', resize);
 	    })();
 	});
+	var url = 'http://xinzhongzhu.com:13001/setlottery';
+	var query = __webpack_require__(5);
 
+	var _query = query(location.search.substring(1));
+
+	var access_token = _query.access_token;
+	var openid = _query.openid;
+
+	var $ = __webpack_require__(6);
 	var k = 3;
 	var animDuration = 500;
 	var gameState = _Object$defineProperties({
@@ -456,21 +464,39 @@
 	}
 
 	function winPage() {
-	    return '<div class="pg win fade-in">\n            <div class="code-container" style="">\n                <span style="margin-right: 80px">中奖编码:</span>\n                <span class="code">aNb1Fo53</span>\n            </div>\n            <img class="erweima" src="./build/css/erweima.png" alt="">\n        </div>';
+	    return '<div class="pg win fade-in">\n            <div class="logo"></div>\n            <div class="code-container" style="">\n                <span style="margin-right: 80px">中奖编码:</span>\n                <span class="code"></span>\n            </div>\n            <img class="erweima" src="./build/css/erweima.png" alt="">\n        </div>';
 	}
+
+	function notLucky() {
+	    return '<div class="pg not-lucky fade-in">\n            <div class="logo"></div>\n        </div>';
+	}
+
 	$(document).on('touchend', '.start-game', function () {
 	    gameState.state = 1;
 	});
 
 	$(document).on('touchend', '.suc .nxt', once(function () {
-	    $('.suc').remove();
-	    $('.pg').addClass('fade-out');
-	    setTimeout(function () {
-	        $('.pg').remove();
-	        $(winPage()).appendTo($('.container'));
-	        $('.w')[0].className = 'w bg-win';
-	    }, animDuration);
+	    $.get({
+	        access_token: access_token,
+	        openid: openid
+	    }).done(function (d) {
+	        $('.suc').remove();
+	        $('.pg').addClass('fade-out');
+	        setTimeout(function () {
+	            $('.pg').remove();
+	            if (d['award'] === 1) {
+	                var w = $(winPage());
+	                w.find('.code').text(d['randomCode']);
+	                w.appendTo($('.container'));
+	                $('.w')[0].className = 'w bg-win';
+	            } else if (d['award'] === 0) {
+	                $(notLucky()).appendTo($('.container'));
+	                $('.w')[0].className = 'w bg-lost';
+	            }
+	        }, animDuration);
+	    });
 	}));
+
 	$(document).on('touchend', '.los .nxt', function () {
 	    $('.los').remove();
 	    gameState.state = $(this).data('restart');
@@ -579,6 +605,27 @@
 	module.exports = function (cb) {
 	    callback = cb;
 	};
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function (s) {
+	    if (!s) return {};
+	    var o = {};
+	    s.split('&').forEach(function (el) {
+	        o[el.split('=')[0]] = el.split('=')[1];
+	    });
+	    return o;
+	};
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	module.exports = jQuery;
 
 /***/ }
 /******/ ]);

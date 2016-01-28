@@ -292,3 +292,12 @@ body {
     top: 1200px;
     left: 214px;
 }
+
+.not-lucky {
+    background: url("./lost.png") no-repeat;
+    background-position: 260px 280px;
+}
+
+.bg-lost {
+    background: url("./lost-bg.jpg") no-repeat;
+}

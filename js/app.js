@@ -16,7 +16,10 @@ require('./load')(function () {
     })();
 
 });
-
+var url = 'http://xinzhongzhu.com:13001/setlottery';
+var query = require('./query');
+var {access_token,openid} = query(location.search.substring(1));
+var $ = require('jquery');
 var k = 3;
 var animDuration = 500;
 var gameState = {
@@ -451,26 +454,48 @@ function gamePage() {
 
 function winPage() {
     return `<div class="pg win fade-in">
+            <div class="logo"></div>
             <div class="code-container" style="">
                 <span style="margin-right: 80px">中奖编码:</span>
-                <span class="code">aNb1Fo53</span>
+                <span class="code"></span>
             </div>
             <img class="erweima" src="./build/css/erweima.png" alt="">
         </div>`;
 }
+
+function notLucky() {
+    return `<div class="pg not-lucky fade-in">
+            <div class="logo"></div>
+        </div>`;
+}
+
 $(document).on('touchend', '.start-game', function () {
     gameState.state = 1;
 });
 
 $(document).on('touchend', '.suc .nxt', once(function () {
-    $('.suc').remove();
-    $('.pg').addClass('fade-out');
-    setTimeout(function () {
-        $('.pg').remove();
-        $(winPage()).appendTo($('.container'));
-        $('.w')[0].className = 'w bg-win';
-    }, animDuration);
+    $.get({
+        access_token,
+        openid
+    }).done(function (d) {
+        $('.suc').remove();
+        $('.pg').addClass('fade-out');
+        setTimeout(function () {
+            $('.pg').remove();
+            if (d['award'] === 1) {
+                var w = $(winPage());
+                w.find('.code').text(d['randomCode']);
+                w.appendTo($('.container'));
+                $('.w')[0].className = 'w bg-win';
+            }
+            else if (d['award'] === 0) {
+                $(notLucky()).appendTo($('.container'));
+                $('.w')[0].className = 'w bg-lost';
+            }
+        }, animDuration);
+    });
 }));
+
 $(document).on('touchend', '.los .nxt', function () {
     $('.los').remove();
     gameState.state = $(this).data('restart');
