@@ -220,13 +220,14 @@ function initBoard(gridOfX, gridOfY, width, height, container, brs) {
                 y: bar.y
             };
             if (bar.dir === 0 && bar.x > -1 && bar.x < gridOfX - bar.num) {
-                occupyMap[bar.y][bar.x] = 0;
-                if (bar.num === 2)occupyMap[bar.y][bar.x + 1] = 0;
-                if (bar.num === 3)occupyMap[bar.y][bar.x + 2] = 0;
+                for (var i = 0; i < bar.num; i++) {
+                    occupyMap[bar.y][bar.x + i] = 0;
+                }
+
             } else if (bar.dir === 1 && bar.y > -1 && bar.y < gridOfY - bar.num) {
-                occupyMap[bar.y][bar.x] = 0;
-                if (bar.num === 2)occupyMap[bar.y + 1][bar.x] = 0;
-                if (bar.num === 3)occupyMap[bar.y + 2][bar.x] = 0;
+                for (var i = 0; i < bar.num; i++) {
+                    occupyMap[bar.y + i][bar.x] = 0;
+                }
             }
         }));
     });
@@ -244,13 +245,14 @@ function initBoard(gridOfX, gridOfY, width, height, container, brs) {
 
     function setOccupyMap(bar, occupyMap) {
         if (bar.dir === 0) {
-            occupyMap[bar.y][bar.x] = 1;
-            if (bar.num === 2)occupyMap[bar.y][bar.x + 1] = 1;
-            if (bar.num === 3)occupyMap[bar.y][bar.x + 2] = 1;
+            for (var i = 0; i < bar.num; i++) {
+                occupyMap[bar.y][bar.x + i] = 1;
+            }
+
         } else {
-            occupyMap[bar.y][bar.x] = 1;
-            if (bar.num === 2) occupyMap[bar.y + 1][bar.x] = 1;
-            if (bar.num === 3)occupyMap[bar.y + 2][bar.x] = 1;
+            for (var i = 0; i < bar.num; i++) {
+                occupyMap[bar.y + i][bar.x] = 1;
+            }
         }
     }
 
