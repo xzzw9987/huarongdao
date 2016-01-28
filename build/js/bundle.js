@@ -476,10 +476,10 @@
 	});
 
 	$(document).on('touchend', '.suc .nxt', once(function () {
-	    $.get({
+	    $.get(url, {
 	        access_token: access_token,
 	        openid: openid
-	    }).done(function (d) {
+	    }, null, 'json').done(function (d) {
 	        $('.suc').remove();
 	        $('.pg').addClass('fade-out');
 	        setTimeout(function () {

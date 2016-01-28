@@ -474,10 +474,10 @@ $(document).on('touchend', '.start-game', function () {
 });
 
 $(document).on('touchend', '.suc .nxt', once(function () {
-    $.get({
+    $.get(url, {
         access_token,
         openid
-    }).done(function (d) {
+    }, null, 'json').done(function (d) {
         $('.suc').remove();
         $('.pg').addClass('fade-out');
         setTimeout(function () {
