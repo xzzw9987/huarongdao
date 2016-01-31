@@ -463,12 +463,14 @@ function winPage() {
                 <span class="code"></span>
             </div>
             <img class="erweima" src="./build/css/erweima.png" alt="">
+            <div class="fx-btn"></div>
         </div>`;
 }
 
 function notLucky() {
     return `<div class="pg not-lucky fade-in">
             <div class="logo"></div>
+            <div class="fx-btn"></div>
         </div>`;
 }
 
@@ -508,6 +510,9 @@ $(document).on('touchend', ' .rn', function () {
 });
 $(document).on('touchend', '.rules-btn', function () {
     $('.rules').show();
+});
+$(document).on('touchend', '.fx,.fx-btn', function () {
+    $('.fx').toggle();
 });
 function once(callback) {
     var done = false;

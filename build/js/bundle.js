@@ -464,11 +464,11 @@
 	}
 
 	function winPage() {
-	    return '<div class="pg win fade-in">\n            <div class="logo"></div>\n            <div class="code-container" style="">\n                <span style="margin-right: 80px">中奖编码:</span>\n                <span class="code"></span>\n            </div>\n            <img class="erweima" src="./build/css/erweima.png" alt="">\n        </div>';
+	    return '<div class="pg win fade-in">\n            <div class="logo"></div>\n            <div class="code-container" style="">\n                <span style="margin-right: 80px">中奖编码:</span>\n                <span class="code"></span>\n            </div>\n            <img class="erweima" src="./build/css/erweima.png" alt="">\n            <div class="fx-btn"></div>\n        </div>';
 	}
 
 	function notLucky() {
-	    return '<div class="pg not-lucky fade-in">\n            <div class="logo"></div>\n        </div>';
+	    return '<div class="pg not-lucky fade-in">\n            <div class="logo"></div>\n            <div class="fx-btn"></div>\n        </div>';
 	}
 
 	$(document).on('touchend', '.start-game', function () {
@@ -506,6 +506,9 @@
 	});
 	$(document).on('touchend', '.rules-btn', function () {
 	    $('.rules').show();
+	});
+	$(document).on('touchend', '.fx,.fx-btn', function () {
+	    $('.fx').toggle();
 	});
 	function once(callback) {
 	    var done = false;

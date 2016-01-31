@@ -288,8 +288,8 @@ body {
 
 .code-container {
     position: absolute;
-    font-size: 60px;
-    top: 1200px;
+    font-size: 50px;
+    top: 1182px;
     left: 214px;
 }
 
@@ -300,4 +300,44 @@ body {
 
 .bg-lost {
     background: url("./lost-bg.jpg") no-repeat;
+}
+
+.fx {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.fx .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .4;
+
+}
+
+.fx .fx-pic {
+    position: absolute;
+    background: url("./fx.png") no-repeat;
+    width: 606px;
+    height: 290px;
+    top: 50px;
+    right: 50px;
+}
+
+.fx-btn {
+    position: absolute;
+    top: 1400px;
+    left: 110px;
+    width: 470px;
+    height: 170px;
+}
+
+.not-lucky .fx-btn {
+    top: 1450px;
+    left: 290px;
 }
