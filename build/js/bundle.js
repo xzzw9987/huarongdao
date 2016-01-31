@@ -591,8 +591,11 @@
 
 	var callback;
 	window.addEventListener('load', function () {
-	    $('.load-percent').text('100%');
-	    callback && callback();
+	    n = 100;
+	    $('.load-percent').text(n + '%');
+	    setTimeout(function () {
+	        callback && callback();
+	    }, 1000);
 	});
 	var n = 0;
 	function x() {
