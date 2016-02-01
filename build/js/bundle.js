@@ -98,6 +98,17 @@
 	                    }
 	                    game(q[val], val);
 	                }, animDuration);
+
+	                /**
+	                 * tongji start
+	                 */
+	                $.get('http://xinzhongzhu.com:13001/tongji', {
+	                    type: 'g' + val,
+	                    access_token: access_token, openid: openid
+	                });
+	                /**
+	                 * tongji end
+	                 */
 	            }
 	            if (val === k + 1) {
 	                missionComplete();
@@ -464,6 +475,18 @@
 	}
 
 	function winPage() {
+	    /**
+	     * tongji start
+	     */
+	    $.get('http://xinzhongzhu.com:13001/tongji', {
+	        type: 'all',
+	        access_token: access_token, openid: openid
+	    });
+
+	    /**
+	     * tongji end
+	     */
+
 	    return '<div class="pg win fade-in">\n            <div class="logo"></div>\n            <div class="code-container" style="">\n                <span style="margin-right: 80px">中奖编码:</span>\n                <span class="code"></span>\n            </div>\n            <img class="erweima" src="./build/css/erweima.png" alt="">\n            <div class="fx-btn"></div>\n        </div>';
 	}
 
