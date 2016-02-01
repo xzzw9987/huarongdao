@@ -480,18 +480,6 @@ function gamePage() {
 }
 
 function winPage() {
-    /**
-     * tongji start
-     */
-    $.get('http://xinzhongzhu.com:13001/tongji', {
-        type: 'all',
-        access_token, openid
-    });
-
-    /**
-     * tongji end
-     */
-
     return `<div class="pg win fade-in">
             <div class="logo"></div>
             <div class="code-container" style="">
@@ -535,6 +523,18 @@ $(document).on('touchend', '.suc .nxt', once(function () {
             }
         }, animDuration);
     });
+
+    /**
+     * tongji start
+     */
+    $.get('http://xinzhongzhu.com:13001/tongji', {
+        type: 'all',
+        access_token, openid
+    });
+
+    /**
+     * tongji end
+     */
 }));
 
 $(document).on('touchend', '.los .nxt', function () {
