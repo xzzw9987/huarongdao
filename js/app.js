@@ -163,7 +163,7 @@ function missionComplete() {
      * tongji start
      */
     $.get('http://xinzhongzhu.com:13001/tongji', {
-        type: 'g' + (k - 1),
+        type: 'g' + k,
         access_token, openid
     });
     /**
