@@ -102,10 +102,12 @@
 	                /**
 	                 * tongji start
 	                 */
-	                $.get('http://xinzhongzhu.com:13001/tongji', {
-	                    type: 'g' + val,
-	                    access_token: access_token, openid: openid
-	                });
+	                if (val > 2) {
+	                    $.get('http://xinzhongzhu.com:13001/tongji', {
+	                        type: 'g' + (val - 1),
+	                        access_token: access_token, openid: openid
+	                    });
+	                }
 	                /**
 	                 * tongji end
 	                 */
@@ -188,6 +190,17 @@
 	    $(s).appendTo(document.body);
 	}
 	function missionComplete() {
+	    /**
+	     * tongji start
+	     */
+	    $.get('http://xinzhongzhu.com:13001/tongji', {
+	        type: 'g' + (k - 1),
+	        access_token: access_token, openid: openid
+	    });
+	    /**
+	     * tongji end
+	     */
+
 	    var s = '<div class="suc fade-in">\n                <div class="cv"></div>\n                <div class="opt">\n                    <div class="nxt"></div>\n                </div>\n            </div>';
 	    $(s).appendTo(document.body);
 	}

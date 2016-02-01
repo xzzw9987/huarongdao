@@ -41,10 +41,12 @@ var gameState = {
             /**
              * tongji start
              */
-            $.get('http://xinzhongzhu.com:13001/tongji', {
-                type: 'g' + val,
-                access_token, openid
-            });
+            if (val > 2) {
+                $.get('http://xinzhongzhu.com:13001/tongji', {
+                    type: 'g' + (val - 1),
+                    access_token, openid
+                });
+            }
             /**
              * tongji end
              */
@@ -157,6 +159,17 @@ function over(restartLevel) {
     $(s).appendTo(document.body);
 }
 function missionComplete() {
+    /**
+     * tongji start
+     */
+    $.get('http://xinzhongzhu.com:13001/tongji', {
+        type: 'g' + (k - 1),
+        access_token, openid
+    });
+    /**
+     * tongji end
+     */
+
     var s = `<div class="suc fade-in">
                 <div class="cv"></div>
                 <div class="opt">
