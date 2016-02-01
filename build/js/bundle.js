@@ -102,7 +102,7 @@
 	                /**
 	                 * tongji start
 	                 */
-	                if (val > 2) {
+	                if (val > 1) {
 	                    $.get('http://xinzhongzhu.com:13001/tongji', {
 	                        type: 'g' + (val - 1),
 	                        access_token: access_token, openid: openid
