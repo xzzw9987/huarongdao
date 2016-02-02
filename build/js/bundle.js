@@ -76,7 +76,22 @@
 	var $ = __webpack_require__(6);
 	var k = 3;
 	var animDuration = 500;
-
+	var tongjiFunc = (function () {
+	    var ret = {};
+	    var len = 3;
+	    for (var i = 1; i <= len; i++) {
+	        (function () {
+	            var m = i;
+	            ret[m] = once(function () {
+	                $.get('http://xinzhongzhu.com:13001/tongji', {
+	                    type: 'g' + m,
+	                    access_token: access_token, openid: openid
+	                });
+	            });
+	        })();
+	    }
+	    return ret;
+	})();
 	var gameState = _Object$defineProperties({
 	    winPos: { x: 5, y: 2 },
 	    win: function win(pos) {
@@ -104,10 +119,7 @@
 	                 * tongji start
 	                 */
 	                if (val > 1) {
-	                    $.get('http://xinzhongzhu.com:13001/tongji', {
-	                        type: 'g' + (val - 1),
-	                        access_token: access_token, openid: openid
-	                    });
+	                    tongjiFunc[val - 1] && tongjiFunc[val - 1]();
 	                }
 	                /**
 	                 * tongji end
