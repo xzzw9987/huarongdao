@@ -22,6 +22,7 @@ var {access_token,openid} = query(location.search.substring(1));
 var $ = require('jquery');
 var k = 3;
 var animDuration = 500;
+
 var gameState = {
     set state(val) {
         this.canPlay = true;
@@ -36,8 +37,9 @@ var gameState = {
                     $('.container').append($(gamePage()));
                 }
                 game(q[val], val);
-            }, animDuration);
+                toggleClass('sg' + val);
 
+            }, animDuration);
             /**
              * tongji start
              */
@@ -588,3 +590,9 @@ wx.ready(function () {
         }
     });
 });
+
+function toggleClass(cn) {
+    var classNames = ['sg1', 'sg2', 'sg3'];
+    $('.pg').removeClass(classNames.join(' '))
+        .addClass(cn);
+}

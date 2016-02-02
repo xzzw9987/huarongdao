@@ -76,6 +76,7 @@
 	var $ = __webpack_require__(6);
 	var k = 3;
 	var animDuration = 500;
+
 	var gameState = _Object$defineProperties({
 	    winPos: { x: 5, y: 2 },
 	    win: function win(pos) {
@@ -97,8 +98,8 @@
 	                        $('.container').append($(gamePage()));
 	                    }
 	                    game(q[val], val);
+	                    toggleClass('sg' + val);
 	                }, animDuration);
-
 	                /**
 	                 * tongji start
 	                 */
@@ -585,6 +586,11 @@
 	        }
 	    });
 	});
+
+	function toggleClass(cn) {
+	    var classNames = ['sg1', 'sg2', 'sg3'];
+	    $('.pg').removeClass(classNames.join(' ')).addClass(cn);
+	}
 
 /***/ },
 /* 1 */

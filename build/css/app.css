@@ -362,3 +362,25 @@ body {
     top: 1450px;
     left: 290px;
 }
+
+.sg1 .logo,
+.sg2 .logo,
+.sg3 .logo {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 500px;
+    background-position: center;
+}
+
+.sg1 .logo {
+    background-image: url("./sg1.png");
+}
+
+.sg2 .logo {
+    background-image: url("./sg2.png");
+}
+
+.sg3 .logo {
+    background-image: url("./sg3.png");
+}
