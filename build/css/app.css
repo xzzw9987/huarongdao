@@ -285,6 +285,7 @@ body {
 
 .bg-index {
     background-image: url("./i.jpg");
+    background-position: 0 -240px;
 }
 
 .bg-game {
