@@ -573,7 +573,7 @@
 
 	    wx.onMenuShareAppMessage({
 	        title: '来瓶王朝过春节', // 分享标题
-	        desc: '快来试一试，凭你的智商，能不能从重重包围中把王朝带回家吧', // 分享描述
+	        desc: '据说智商低的人过不了关?你敢挑战吗?', // 分享描述
 	        link: 'http://wx.wine-dynasty.com/hrd/share.html', // 分享链接
 	        imgUrl: 'http://wx.wine-dynasty.com/hrd/fg.jpg', // 分享图标
 	        type: 'link', // 分享类型,music、video或link，不填默认为link
