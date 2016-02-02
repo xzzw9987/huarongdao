@@ -249,15 +249,15 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 840px;
-    height: 950px;
-    background: url("./rules.png") no-repeat;
+    width: 1000px;
+    height: 880px;
+    background: url("./rules-bg.png") no-repeat;
 }
 
 .rn {
     position: absolute;
-    bottom: 90px;
-    left: 220px;
+    bottom: 60px;
+    left: 310px;
     width: 380px;
     height: 130px;
 }
@@ -272,24 +272,24 @@ body {
 }
 
 .bg-win {
-    background-image: url("./win-bg.jpg");
+    /*background-image: url("./win-bg.jpg");*/
 }
 
 .win {
     background: url("./win.png") no-repeat;
-    background-position: 100px 250px;
+    background-position: 20px 60px;
 }
 
 .erweima {
     position: relative;
-    left: 94px;
-    top: 269px;
+    left: 14px;
+    top: 50px;
 }
 
 .code-container {
     position: absolute;
     font-size: 50px;
-    top: 1182px;
+    top: 1217px;
     left: 214px;
 }
 
@@ -331,7 +331,7 @@ body {
 
 .fx-btn {
     position: absolute;
-    top: 1400px;
+    top: 1480px;
     left: 110px;
     width: 470px;
     height: 170px;
