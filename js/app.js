@@ -481,7 +481,6 @@ function gamePage() {
 
 function winPage() {
     return `<div class="pg win fade-in">
-            <div class="logo"></div>
             <div class="code-container" style="">
                 <span style="margin-right: 80px">中奖编码:</span>
                 <span class="code"></span>

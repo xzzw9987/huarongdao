@@ -161,7 +161,7 @@ body {
     left: 0;
     width: 100%;
     height: 400px;
-    background: url("./footer.png") 40px 0 no-repeat;
+    background: url("./footer.png") 40px 30px no-repeat;
 }
 
 .footer .rules-btn {
@@ -281,9 +281,8 @@ body {
 
 .erweima {
     position: relative;
-    left: 80px;
-    top: 285px;
-    /*transform: translate(0,1420px);*/
+    left: 94px;
+    top: 269px;
 }
 
 .code-container {
