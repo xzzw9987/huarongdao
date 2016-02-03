@@ -345,6 +345,7 @@ body {
 .sg1 .logo,
 .sg2 .logo,
 .sg3 .logo {
+    top: 100px;
     left: 0;
     right: 0;
     margin: 0 auto;
