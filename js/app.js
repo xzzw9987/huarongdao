@@ -608,3 +608,4 @@ function toggleClass(cn) {
     $('.pg').removeClass(classNames.join(' '))
         .addClass(cn);
 }
+
